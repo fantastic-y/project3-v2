@@ -19,7 +19,7 @@ class App extends Component {
   componentDidMount() {
       this.setState({isLoading: true});
 
-      fetch('http://localhost:8080/api/booklists')
+      fetch('http://localhost:8000/api/booklists')
           .then(response => response.json())
           .then(data => this.setState({booklists: data, isLoading: false}));
   }

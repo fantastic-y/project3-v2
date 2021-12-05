@@ -21,7 +21,7 @@ class BookEdit extends Component {
     async componentDidMount() {
         if (this.props.match.params.id !== 'new') {
             const book =
-                await (await fetch(`http://localhost:8080/api/booklist/${this.props.match.params.id}`)).json();
+                await (await fetch(`http://localhost:8000/api/booklist/${this.props.match.params.id}`)).json();
             this.setState({item: book});
         }
     }
@@ -37,7 +37,7 @@ class BookEdit extends Component {
         event.preventDefault();
         const {item} = this.state;
 
-        await fetch('http://localhost:8080/api/booklist', {
+        await fetch('http://localhost:8000/api/booklist', {
             method: (item._id) ? 'PUT' : 'POST',
             headers: {
                 'Accept': 'application/json',
