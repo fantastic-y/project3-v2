@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Container, Row, Col } from 'reactstrap';
+import { Button, Container, Row, Col, 
+    Card, CardBody, CardImg, CardTitle, CardText } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "./App.css";
 
@@ -9,7 +10,8 @@ class Home extends Component {
         super(props);
         this.state = {
             booklists: [],
-            isLoading: true
+            isLoading: true,
+            saved: false,
         };
     }
 
@@ -37,7 +39,7 @@ class Home extends Component {
         .filter(booklist => booklist.cover !== '')
         .map(booklist => {
             return <Container>
-                <Row>
+                {/* <Row>
                     <Col xs={12} md={4} lg={3}>
                         <img src={booklist.cover} alt="cover" />
                         <br />
@@ -50,7 +52,25 @@ class Home extends Component {
                             onClick={() => this.setState({saved: !booklist.saved})}
                         >Save to my booklist</Button>
                     </Col>
-                </Row>
+                </Row> */}
+                <Row xs={1} md={4} className="g-4">
+                        {Array.from({ length: 4 }).map((_, idx) => (
+                            <Col>
+                            <Card>
+                                <CardImg variant="top" src={booklist.cover} alt="cover" />
+                                <CardBody>
+                                <CardTitle>{booklist.title}</CardTitle>
+                                <CardText>
+                                    <span>Score: {booklist.score}/10</span>
+                                    <br />
+                                    <span>Author: {booklist.author}</span>
+                                </CardText>
+                                <Button color="success">Save to my booklist</Button>
+                                </CardBody>
+                            </Card>
+                            </Col>
+                        ))}
+                    </Row>
             </Container>
         })
 

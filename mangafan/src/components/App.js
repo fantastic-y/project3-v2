@@ -3,18 +3,45 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import BookList from './BookList';
 import BookEdit from './BookEdit';
 import Home from './Home';
+import Billboard from './Billboard';
+import About from './About';
 import AppNavbar from './Navbar';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        booklists: [],
+        isLoading: true
+    };
+  }
+
+  componentDidMount() {
+      this.setState({isLoading: true});
+
+      fetch('http://localhost:8080/api/booklists')
+          .then(response => response.json())
+          .then(data => this.setState({booklists: data, isLoading: false}));
+  }
 
   render() {
     return (
       <Router>
         <AppNavbar />
         <Switch>
-          <Route exact path='/' component={Home}/>
+          <Route exact path='/' render={() => (
+            <Home
+              booklists={this.state.booklists}
+            />
+          )}/>
           <Route exact path='/booklists' component={BookList}/>
           <Route exact path='/booklists/:id' component={BookEdit}/>
+          <Route exact path="/billboard" component={Billboard}/>
+          <Route exact path="/about" render={() => 
+            <About
+              booklists={this.state.booklists}
+            />
+          }/>
         </Switch>
       </Router>
     )
