@@ -24,6 +24,11 @@ class App extends Component {
           .then(data => this.setState({booklists: data, isLoading: false}));
   }
 
+  handleSave = (props) => {
+    this.setState({saved: !props.saved});
+    console.log("Saved to the list!");
+}
+
   render() {
     return (
       <Router>
@@ -39,7 +44,8 @@ class App extends Component {
           <Route exact path="/billboard" component={Billboard}/>
           <Route exact path="/about" render={() => 
             <About
-              booklists={this.state.booklists}
+              booklists = {this.state.booklists}
+              handleSave = {this.handleSave}
             />
           }/>
         </Switch>

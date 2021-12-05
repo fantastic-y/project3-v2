@@ -11,7 +11,6 @@ class Home extends Component {
         this.state = {
             booklists: [],
             isLoading: true,
-            saved: false,
         };
     }
 
@@ -23,10 +22,6 @@ class Home extends Component {
             .then(data => this.setState({booklists: data, isLoading: false}));
     }
 
-    handleSave = (props) => {
-        this.setState({saved: !props.saved});
-        console.log("Saved to the list!");
-    }
 
     render() {
         const { booklists, isLoading } = this.state;
