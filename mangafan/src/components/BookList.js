@@ -35,7 +35,7 @@ class BookList extends Component {
     // }
 
     handleDelete = (props) => {
-        this.setState({saved: !props.saved})
+        this.setState({saved: props.saved -1 })
         ;
         console.log("Remove Done!");
     }
@@ -68,7 +68,7 @@ class BookList extends Component {
                             size="sm"
                             color="warning"
                             // onClick={() => this.removeInv(booklist._id)}
-                            onClick={() => this.setState({ saved: !booklist.saved })}
+                            onClick={() => this.setState({saved: !booklist.saved})}
                         >Delete</Button>
                     </ButtonGroup>
                 </td>
@@ -86,15 +86,15 @@ class BookList extends Component {
                         >Add Manga</Button>
                     </div>
                     <h3>Your Bookshelf</h3>
-                    <Table className="mt-4">
+                    <Table responsive className="mt-4">
                         <thead>
                             <tr>
-                                <th width="15%">Image</th>
-                                <th width="20%">Manga Title</th>
-                                <th width="15%">Author</th>
-                                <th width="10%">Genres</th>
-                                <th width="10%">Your Score</th>
-                                <th width="30%">Actions</th>
+                                <th scope="row">Image</th>
+                                <th scope="row">Manga Title</th>
+                                <th scope="row">Author</th>
+                                <th scope="row">Genres</th>
+                                <th scope="row">Your Score</th>
+                                <th scope="row">Actions</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -5,7 +5,7 @@ const BooklistSchema = new mongoose.Schema({
     title: String,
     author: String,
     genres: String,
-    score: String,
+    score: Number,
     yourscore: {
         type: Number,
         max: 10

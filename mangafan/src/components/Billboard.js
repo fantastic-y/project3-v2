@@ -31,7 +31,7 @@ class Billboard extends Component {
         .sort(function(a,b){return b-a})
         .map(booklist => {
             return <tr key={booklist._id}>
-                <td>{booklist.index}</td>
+                <td>{booklist._id}</td>
                 <td><img src={booklist.cover} alt="cover" /></td>
                 <td>{booklist.title}</td>
                 <td>{booklist.author}</td>
@@ -55,6 +55,7 @@ class Billboard extends Component {
                     <Table className="mt-4">
                         <thead>
                             <tr>
+                                <th width="5%">Ranking</th>
                                 <th width="5%">Image</th>
                                 <th width="5%">Manga Title</th>
                                 <th width="5%">Author</th>

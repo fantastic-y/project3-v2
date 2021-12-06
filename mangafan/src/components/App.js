@@ -14,6 +14,7 @@ class App extends Component {
         booklists: [],
         isLoading: true
     };
+    this.handleSave = this.handleSave.bind(this);
   }
 
   componentDidMount() {
@@ -26,8 +27,8 @@ class App extends Component {
 
   handleSave = (props) => {
     this.setState({saved: !props.saved});
-    console.log("Saved to the list!");
-}
+    console.log(props.saved + "Saved to the list!");
+  }
 
   render() {
     return (
@@ -37,6 +38,7 @@ class App extends Component {
           <Route exact path='/' render={() => (
             <Home
               booklists={this.state.booklists}
+              handleSave = {this.handleSave}
             />
           )}/>
           <Route exact path='/booklists' component={BookList}/>

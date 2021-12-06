@@ -3,9 +3,8 @@ import {
     Collapse,Navbar, NavbarToggler, NavbarBrand,
     Nav, NavItem, NavLink,
     UncontrolledDropdown,
-    DropdownToggle, DropdownMenu, DropdownItem,
+    DropdownToggle, DropdownMenu, DropdownItem, NavbarText,
   } from "reactstrap";
-import { Link } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import companylogo from './img/mangafanlogo.png';
 
@@ -13,13 +12,13 @@ export default function AppNavbar() {
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
-        <Navbar sticky="top" className="navbar-dark bg-dark px-5" expand="md">
-            <NavbarBrand tag={Link} to="/">
+        <Navbar sticky="top" color="dark" dark expand="md">
+            <NavbarBrand href="/">
                 <img src={companylogo} alt="weblogo"/>
             </NavbarBrand>
             <NavbarToggler onClick={() => {setIsOpen(!isOpen) }} />
                 <Collapse isOpen={isOpen} navbar>
-                    <Nav className="mr-auto" navbar>
+                    <Nav className="me-auto" navbar>
                         <NavItem>
                             <NavLink href="billboard">Billboard</NavLink>
                         </NavItem>
@@ -36,6 +35,9 @@ export default function AppNavbar() {
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                         </NavItem>
+                        <NavbarText right>
+                            Log In
+                        </NavbarText>
                     </Nav>
                 </Collapse>
         </Navbar>

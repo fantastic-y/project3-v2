@@ -9,7 +9,7 @@ class BookEdit extends Component {
         author: '',
         genres: '',
         yourscore: '',
-        saved: true,
+        saved: true,   
     };
     constructor(props){
         super(props);
