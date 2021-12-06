@@ -5,8 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import "./App.css";
 
 export default function BookList(props) {
-    const booklists= props;
-
+    const {booklists}= props;
 
     return(
         <div>
@@ -32,7 +31,7 @@ export default function BookList(props) {
                         </tr>
                     </thead>
                     <tbody>
-                         {booklists.booklists
+                         {booklists
                             .filter(booklist => booklist.saved === true)
                             .map(booklist => {
                                 return <tr key={booklist._id}>

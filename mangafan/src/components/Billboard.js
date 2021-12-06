@@ -1,17 +1,23 @@
 import React from 'react';
-import { Button, Container, Table } from 'reactstrap';
+import { Button, Container, Table, Badge } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "./App.css";
 
 export default function About(props) {
-    const booklists= props;
+    const {booklists}= props;
     const i = 0; 
 
     return(
         <div>
-                <Container fluid>
-                    <h3>Billboard Top 10 Mangas</h3>
-                    <Table className="mt-4">
+            <Container fluid>
+                <h3>Billboard Top 10 Mangas</h3>
+                <span>Genres: </span>
+                <Badge color="dark" href="#">All</Badge>{' '}
+                <Badge color="dark" href="#">Action</Badge>{' '}
+                <Badge color="dark" href="#">Comedy</Badge>{' '}
+                <Badge color="dark" href="#">Drama</Badge>{' '}
+                <Badge color="dark" href="#">Romance</Badge>
+                    <Table hover responsive size="sm">
                         <thead>
                             <tr>
                                 <th width="5%">Ranking</th>
@@ -20,11 +26,11 @@ export default function About(props) {
                                 <th width="5%">Author</th>
                                 <th width="5%">Genres</th>
                                 <th width="5%">Score</th>
-                                <th width="10%">Save to your list</th>
+                                <th width="10%">Save the Manga</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {booklists.booklists.sort(function(a,b){return b.score-a.score}).slice(0,10)
+                            {booklists.sort(function(a,b){return b.score-a.score}).slice(0,10)
                             .map(booklist => {
                             return <tr key={booklist._id}>
                                 <td>{i}</td>
@@ -44,7 +50,7 @@ export default function About(props) {
                                 </tr>
                             })}
                         </tbody>
-                        </Table>
+                    </Table>
                 </Container>
             </div>
     )

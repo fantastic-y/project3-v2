@@ -7,15 +7,19 @@ import Billboard from './Billboard';
 import About from './About';
 import Signin from './Login';
 import AppNavbar from './Navbar';
+import { newsData } from './newsdetails';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
         booklists: [],
+        newsLists: newsData,
         isLoading: true,
         sortType: "asc",
         listNum: "",
+        billlist: "",
+        filterGenre: ""
     };
     this.handleSave = this.handleSave.bind(this);
   }
@@ -26,7 +30,6 @@ class App extends Component {
       fetch('http://localhost:8000/api/booklists')
           .then(response => response.json())
           .then(data => this.setState({booklists: data, isLoading: false}));
-
   }
 
   handleSave = (props) => {
@@ -40,7 +43,7 @@ class App extends Component {
     return isReversed * a.title.localeCompare(b.title);
   })
   this.setState({ sortType });
-}
+  }
 
   render() {
     return (
