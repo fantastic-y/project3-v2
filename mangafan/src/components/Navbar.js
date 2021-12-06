@@ -35,9 +35,9 @@ export default function AppNavbar() {
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                         </NavItem>
-                        <NavbarText right>
-                            Log In
-                        </NavbarText>
+                        <NavItem right>
+                            <NavLink href="login">Log In</NavLink>
+                        </NavItem>
                     </Nav>
                 </Collapse>
         </Navbar>

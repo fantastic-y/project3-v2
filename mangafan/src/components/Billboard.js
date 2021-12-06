@@ -1,55 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button, Container, Table } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
-// import './App.css';
+// import "./App.css";
 
-class Billboard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            booklists: [],
-            isLoading: true
-        };
-    }
+export default function About(props) {
+    const booklists= props;
+    const i = 0; 
 
-    componentDidMount() {
-        this.setState({isLoading: true});
-
-        fetch('http://localhost:8000/api/booklists')
-            .then(response => response.json())
-            .then(data => this.setState({booklists: data, isLoading: false}));
-    }
-
-    render() {
-        const { booklists, isLoading } = this.state;
-
-        if(isLoading) {
-            return <p>Please wait. Loading...</p>;
-        }
-
-        const bookList = booklists
-        .sort(function(a,b){return b-a})
-        .map(booklist => {
-            return <tr key={booklist._id}>
-                <td>{booklist._id}</td>
-                <td><img src={booklist.cover} alt="cover" /></td>
-                <td>{booklist.title}</td>
-                <td>{booklist.author}</td>
-                <td>{booklist.genres}</td>
-                <td>{booklist.score}</td>
-                <td>
-                <Button
-                    size="sm"
-                    color="success"
-                    // onClick={() => this.removeInv(booklist._id)}
-                    // onClick={() => this.handleSave(booklist)}
-                >Add to your list</Button>
-                </td>
-            </tr>
-        }).sort(function(a, b) {return a - b;});
-          
-        return (
-            <div>
+    return(
+        <div>
                 <Container fluid>
                     <h3>Billboard Top 10 Mangas</h3>
                     <Table className="mt-4">
@@ -65,13 +24,28 @@ class Billboard extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {bookList}
+                            {booklists.booklists.sort(function(a,b){return b.score-a.score}).slice(0,10)
+                            .map(booklist => {
+                            return <tr key={booklist._id}>
+                                <td>{i}</td>
+                                <td><img src={booklist.cover} alt="cover" /></td>
+                                <td>{booklist.title}</td>
+                                <td>{booklist.author}</td>
+                                <td>{booklist.genres}</td>
+                                <td>{booklist.score}</td>
+                                <td>
+                                <Button
+                                    size="sm"
+                                    color="success"
+                                    // onClick={() => this.removeInv(booklist._id)}
+                                    onClick={() => props.handleSave(booklist)}
+                                >Save to my booklist</Button>
+                                </td>
+                                </tr>
+                            })}
                         </tbody>
                         </Table>
                 </Container>
             </div>
-        )
-    }
+    )
 }
-
-export default Billboard;

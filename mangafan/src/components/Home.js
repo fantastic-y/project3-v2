@@ -18,6 +18,17 @@ export default function About(props) {
                 >Manage Booklist</Link>
             </Button>
 
+        <p>Sort Manga By: 
+          <span class="sort-button">
+            <select
+              name="sort"
+              onChange={(e) => props.onSort(booklists.booklists, e.target.value)}>
+              <option value="asc">a-z</option>
+              <option value="desc">z-a</option>
+            </select>
+          </span>
+        </p>
+
         <Row xs={1} md={4} className="g-4">
             {Array.from({ length: 4 }).map((_, idx) => (
             <Col>
