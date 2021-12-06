@@ -20,7 +20,13 @@ export default function AppNavbar() {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="me-auto" navbar>
                         <NavItem>
+                            <NavLink href="/">Home</NavLink>
+                        </NavItem>
+                        <NavItem>
                             <NavLink href="billboard">Billboard</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="news">News</NavLink>
                         </NavItem>
                         <NavItem>
                             <UncontrolledDropdown nav inNavbar>

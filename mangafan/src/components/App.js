@@ -8,6 +8,8 @@ import About from './About';
 import Signin from './Login';
 import AppNavbar from './Navbar';
 import { newsData } from './newsdetails';
+import AllNews from './Newspage';
+import MangaDetails from './Manga';
 
 class App extends Component {
   constructor(props) {
@@ -59,6 +61,11 @@ class App extends Component {
               onSort={this.onSort}
             />
           )}/>
+          <Route exact path='/news' render={() => (
+            <AllNews
+              newsLists={this.state.newsLists.newsDetails}
+            />)}
+          />
           <Route exact path='/login' component={Signin}/>
           <Route exact path='/booklists' render={() => 
             <BookList
@@ -67,6 +74,7 @@ class App extends Component {
             />
           }/>
           <Route exact path='/booklists/edit/:id' component={BookEdit}/>
+          <Route exact path='/booklists/:id' component={MangaDetails}/>
           <Route exact path="/billboard" render={() => 
             <Billboard
               booklists = {this.state.booklists}

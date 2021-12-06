@@ -12,7 +12,7 @@ export default function About(props) {
             <Container fluid>
                 <h3>Billboard Top 10 Mangas</h3>
                 <span>Genres: </span>
-                <Badge color="dark" href="#">All</Badge>{' '}
+                <Badge active color="dark" href="#">All</Badge>{' '}
                 <Badge color="dark" href="#">Action</Badge>{' '}
                 <Badge color="dark" href="#">Comedy</Badge>{' '}
                 <Badge color="dark" href="#">Drama</Badge>{' '}
