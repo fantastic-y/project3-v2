@@ -93,31 +93,29 @@ export default function About(props) {
           </span>
         </p>
 
-        <Row xs={1} md={4} className="g-4">
-            {Array.from({ length: 4 }).map((_, idx) => (
-            <Col>
-                <Card>
-                    {booklists.map(booklist=>{
-                        return <div>
+        <Container fluid>
+        <Row xs={1} md={4} lg={6} className="g-4">
+            {booklists.map(booklist=>{
+                return <Col >
+                    <Card>
                         <CardImg variant="top" src={booklist.cover} alt="cover" />
                         <CardBody>
-                            <CardTitle>{booklist.title}</CardTitle>
-                            <CardText>
-                                <span>Score: {booklist.score}/10</span>
-                                <br />
-                                <span>Author: {booklist.author}</span>
-                            </CardText>
-                            <Button color="success"
-                                onClick = {()=> props.handleSave(booklist)}
-                            >Save to my booklist</Button>
-                            </CardBody>
-                        </div>
-                    })
-                    }
-                </Card>
-            </Col>
-            ))}
+                        <CardTitle>{booklist.title}</CardTitle>
+                        <CardText>
+                            <span>Score: {booklist.score}/10</span>
+                            <br />
+                            <span>Author: {booklist.author}</span>
+                        </CardText>
+                        <Button color="success"
+                            onClick = {()=> props.handleSave(booklist)}
+                        >Save to my booklist</Button>
+                        </CardBody>
+                    </Card>
+                </Col>
+            })
+            }
         </Row>
+        </Container>
       </Container>
             </div>
     )
