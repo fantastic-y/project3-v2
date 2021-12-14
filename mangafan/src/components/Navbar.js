@@ -3,7 +3,7 @@ import {
     Collapse,Navbar, NavbarToggler, NavbarBrand,
     Nav, NavItem, NavLink,
     UncontrolledDropdown,
-    DropdownToggle, DropdownMenu, DropdownItem, NavbarText,
+    DropdownToggle, DropdownMenu, DropdownItem,
   } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import companylogo from './img/mangafanlogo.png';
@@ -41,9 +41,17 @@ export default function AppNavbar() {
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                         </NavItem>
-                        <NavItem right>
-                            <NavLink href="login">Log In</NavLink>
-                        </NavItem>
+                        <UncontrolledDropdown nav inNavbar>
+                                <DropdownToggle nev caret>
+                                    Log In
+                                </DropdownToggle>
+                                <DropdownMenu>
+                                    <DropdownItem href="#action">My Profile</DropdownItem>
+                                    <DropdownItem href="/booklists">My Booklist</DropdownItem>
+                                    <DropdownItem divider/>
+                                    <DropdownItem href="#action/3.3">Log Out</DropdownItem>
+                                </DropdownMenu>
+                        </UncontrolledDropdown>
                     </Nav>
                 </Collapse>
         </Navbar>

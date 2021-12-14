@@ -75,12 +75,7 @@ export default function About(props) {
                 </Modal>
                 </div>
         <Container fluid>
-            <Button className="m-5 nav bg-light">
-                <Link
-                    to="/booklists"
-                    className="nav-link"
-                >Manage Booklist</Link>
-            </Button>
+        <br></br>
         <h3>Manga Library</h3>
         <p>Sort Manga By:
           <span class="sort-button">

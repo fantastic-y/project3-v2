@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function About(props) {
     const {booklists}= props;
-    const i = 0; 
+    const i = [1,2,3,4,5,6,7,8,9,10]; 
 
     return(
         <div>
@@ -33,7 +33,7 @@ export default function About(props) {
                             {booklists.sort(function(a,b){return b.score-a.score}).slice(0,10)
                             .map(booklist => {
                             return <tr key={booklist._id}>
-                                <td>{i}</td>
+                                <td>{i.forEach(v=>v)}</td>
                                 <td><img src={booklist.cover} alt="cover" /></td>
                                 <td>{booklist.title}</td>
                                 <td>{booklist.author}</td>
