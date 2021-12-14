@@ -77,7 +77,11 @@ class App extends Component {
             />
           }/>
           <Route exact path='/booklists/edit/:id' component={BookEdit}/>
-          <Route exact path='/booklists/:id' component={MangaDetails}/>
+          <Route exact path='/booklists/:id' render={() => 
+            <MangaDetails
+              booklists = {this.state.booklists}
+            />}
+            />
           <Route exact path="/billboard" render={() => 
             <Billboard
               booklists = {this.state.booklists}

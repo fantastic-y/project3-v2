@@ -100,8 +100,8 @@ export default function About(props) {
                         <CardText>
                             <span>Score: {booklist.score}/10</span>
                             <br />
-                            <span>Author: {booklist.author}</span>
                         </CardText>
+                        <Link to={`/booklists/${booklist._id}`}>Read More</Link>
                         <Button color="success"
                             onClick = {()=> props.handleSave(booklist)}
                         >Save to my booklist</Button>
