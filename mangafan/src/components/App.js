@@ -10,6 +10,7 @@ import AppNavbar from './Navbar';
 import { newsData } from './newsdetails';
 import AllNews from './Newspage';
 import MangaDetails from './Manga';
+import Request from './Request'
 
 class App extends Component {
   constructor(props) {
@@ -23,7 +24,6 @@ class App extends Component {
         billlist: "",
         filterGenre: ""
     };
-    this.handleSave = this.handleSave.bind(this);
   }
 
   componentDidMount() {
@@ -36,13 +36,16 @@ class App extends Component {
 
   handleSave = (props) => {
     this.setState({saved: !props.saved});
-    console.log(props.saved + "Updated saved status!");
+    console.log(props.saved + " Updated saved status!");
   }
 
   onSort = (listNum, sortType) => {
   listNum.sort((a, b) => {
+    if (sortType==="default") {
+      return a._id.localeCompare(b._id)
+    } else {
     const isReversed = sortType === "asc" ?1 : -1;
-    return isReversed * a.title.localeCompare(b.title);
+    return isReversed * a.title.localeCompare(b.title);}
   })
   this.setState({ sortType });
   }
@@ -81,12 +84,8 @@ class App extends Component {
               handleSave = {this.handleSave}
             />
           }/>
-          <Route exact path="/about" render={() => 
-            <About
-              booklists = {this.state.booklists}
-              handleSave = {this.handleSave}
-            />
-          }/>
+          <Route exact path="/about" render={About}/>
+          <Route exact path="/request" render={Request}/>
         </Switch>
       </Router>
     )

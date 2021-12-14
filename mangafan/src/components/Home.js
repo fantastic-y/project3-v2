@@ -82,6 +82,7 @@ export default function About(props) {
             <select
               name="sort"
               onChange={(e) => props.onSort(booklists, e.target.value)}>
+              <option value="default">by default</option>
               <option value="asc">a-z</option>
               <option value="desc">z-a</option>
             </select>
@@ -93,7 +94,7 @@ export default function About(props) {
             {booklists.map(booklist=>{
                 return <Col >
                     <Card>
-                        <CardImg variant="top" src={booklist.cover} alt="cover" />
+                        <CardImg variant="top" src={booklist.cover} alt="cover" width="100%" />
                         <CardBody>
                         <CardTitle>{booklist.title}</CardTitle>
                         <CardText>

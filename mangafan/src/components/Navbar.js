@@ -29,18 +29,12 @@ export default function AppNavbar() {
                             <NavLink href="news">News</NavLink>
                         </NavItem>
                         <NavItem>
-                            <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nev caret>
-                                    Help
-                                </DropdownToggle>
-                                <DropdownMenu>
-                                    <DropdownItem href="about">About</DropdownItem>
-                                    <DropdownItem href="#action/3.2">Request</DropdownItem>
-                                    <DropdownItem divider/>
-                                    <DropdownItem href="#action/3.3">Report</DropdownItem>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
+                            <NavLink href="about">About</NavLink>
                         </NavItem>
+                        <NavItem>
+                            <NavLink href="request">Request</NavLink>
+                        </NavItem>
+                        <NavItem>          
                         <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nev caret>
                                     Log In
@@ -52,6 +46,7 @@ export default function AppNavbar() {
                                     <DropdownItem href="#action/3.3">Log Out</DropdownItem>
                                 </DropdownMenu>
                         </UncontrolledDropdown>
+                        </NavItem>
                     </Nav>
                 </Collapse>
         </Navbar>

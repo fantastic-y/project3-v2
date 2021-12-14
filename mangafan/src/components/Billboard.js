@@ -33,7 +33,7 @@ export default function About(props) {
                             {booklists.sort(function(a,b){return b.score-a.score}).slice(0,10)
                             .map(booklist => {
                             return <tr key={booklist._id}>
-                                <td>{i.forEach(v=>v)}</td>
+                                <td>{booklist._id}</td>
                                 <td><img src={booklist.cover} alt="cover" /></td>
                                 <td>{booklist.title}</td>
                                 <td>{booklist.author}</td>
