@@ -36,7 +36,7 @@ export default function AppNavbar() {
                         </NavItem>
                         <NavItem>          
                         <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nev caret>
+                                <DropdownToggle caret>
                                     Log In
                                 </DropdownToggle>
                                 <DropdownMenu>

@@ -25,6 +25,7 @@ class BookEdit extends Component {
             this.setState({item: book});
         }
     }
+
     handleChange = (event) => {
         const target = event.target;
         const value = target.value;
@@ -33,6 +34,7 @@ class BookEdit extends Component {
         item[name] = value;
         this.setState({item});
     }
+
     handleSubmit = async (event) => {
         event.preventDefault();
         const {item} = this.state;
@@ -47,6 +49,7 @@ class BookEdit extends Component {
         });
         this.props.history.push('/booklists');
     }
+    
     render() {
         const {item} = this.state;
         const pagetitle =

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Container, Form, Col, 
-    FormGroup, Label, Input, FormText } from 'reactstrap';
+    FormGroup, Label, Input } from 'reactstrap';
 // import { Link } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "./App.css";
