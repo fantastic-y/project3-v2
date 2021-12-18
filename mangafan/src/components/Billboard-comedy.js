@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Container, Table, Badge } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from 'react-router-dom';
-// import "./App.css";
+import "./css/styles.css";
 
 export default function BillboardComedy(props) {
     const {booklists}= props;

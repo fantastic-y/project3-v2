@@ -2,20 +2,12 @@ import React from 'react';
 import {
     Collapse,Navbar, NavbarToggler, NavbarBrand,
     Nav, NavItem, NavLink,
-    UncontrolledDropdown,
-    DropdownToggle, DropdownMenu, DropdownItem,
   } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import companylogo from './img/mangafanlogo.png';
 
 export default function AppNavbar() {
     const [isOpen, setIsOpen] = React.useState(false);
-    
-    function clearSession(){
-        sessionStorage.clear();
-        alert("Logged out successfully!");
-        window.location.reload();
-      }
     
     return (
         <Navbar sticky="top" color="dark" dark expand="md">

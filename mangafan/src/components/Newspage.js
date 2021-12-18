@@ -3,7 +3,7 @@ import { Button, ListGroup, ListGroupItem } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import "./App.css";
+import "./css/styles.css";
 
 export default function AllNews(props) {
     const { newsLists }= props;

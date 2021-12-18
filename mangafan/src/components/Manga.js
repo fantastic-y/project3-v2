@@ -36,6 +36,25 @@ export default function MangaDetails({booklists}) {
                         
                     </Col>
                 </Row>
+                <Row>
+                    <hr></hr>
+                </Row>
+                <Row className="justify-content-md-center">
+                    <Col md={{offset: 2}}>
+                        <h1>Comments</h1>
+                    </Col>
+                </Row>
+                <br></br>
+                <Row className="justify-content-md-center">
+                        <Col xs={12} md={{offset:1, size:3}}>
+                            <h5>FantasticFan</h5>
+                            <p>Dec.17, 2021</p>
+                            <p>Manga Score: 7.5</p>
+                        </Col>
+                        <Col xs={12} md={{size:7}} >
+                            Comment section will be built in phase two of the project.Comment section will be built in phase two of the project.Comment section will be built in phase two of the project.Comment section will be built in phase two of the project.Comment section will be built in phase two of the project.
+                        </Col>
+                </Row>
                 
             </Container>
         ))

@@ -1,0 +1,53 @@
+@import "color.scss";
+
+.carousel {
+    background-color: $primary;
+    max-height: 900px;
+    .carousel-item img {
+        width: 100%;
+    }
+}
+.home-nav-link {
+    color: $secondary; 
+    float:right;
+}
+.list-group {
+    width: 100%;
+    .list-group-item {
+        img {float: left; border-right: 50px solid #ffffff; height: 240px}
+        span {color: $primary}
+        button {float:right}
+    }
+}
+.sort-button {
+    float:right;
+    span {margin-left: 10px;}
+    select {padding: 5px;}
+}
+.home-row {
+    width: 100%;
+    button {
+        font-size: 12px;
+        padding-left: 3px;
+        padding-right: 3px;
+        margin-right: 6px;
+        float: right;
+    }
+}
+.home-cardimg {
+    max-height: 240px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+.home-cardtitle {
+    font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 200px;
+}
+.home-link {
+    color: black;
+    text-decoration: none;
+}

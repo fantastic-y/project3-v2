@@ -1,14 +1,14 @@
 import React from 'react';
 import { Button, Container, Form, Col, 
-    FormGroup, Label, Input } from 'reactstrap';
-// import { Link } from 'react-router-dom';
+    FormGroup, Label, Input, Alert } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
-// import "./App.css";
+import "./css/styles.css";
 
 export default function Request() {
 
     return(
         <Container>
+            <br></br>
             <h2>Make a Request</h2>
             <Form>
                 <FormGroup row>
@@ -24,6 +24,7 @@ export default function Request() {
                         name="email"
                         placeholder="Contact email address"
                         type="email"
+                        required
                     />
                     </Col>
                 </FormGroup>
@@ -68,6 +69,7 @@ export default function Request() {
                         id="exampleText"
                         name="text"
                         type="textarea"
+                        required
                     />
                     </Col>
                 </FormGroup>
@@ -81,7 +83,7 @@ export default function Request() {
                         size: 10
                     }}
                     >
-                    <Button>
+                    <Button type="submit">
                         Submit
                     </Button>
                     </Col>

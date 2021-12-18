@@ -7,7 +7,8 @@ import { Button, Container, Row, Col,
 import "bootstrap/dist/css/bootstrap.min.css";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import "./App.css";
+import { Carousel } from "react-bootstrap";
+import "./css/styles.css";
 
 export default function About(props) {
     const { booklists }= props;
@@ -21,48 +22,53 @@ export default function About(props) {
 
     return(
         <div>
-            <UncontrolledCarousel
-                items={[
-                    {
-                    altText: 'Ousama Ranking',
-                    header: 'Ousama Ranking',
-                    caption: 'Highest Expectation',
-                    src: 'https://starcrossedanime.com/ousama-ranking-2/'
-                    },
-                    {
-                    altText: 'Deep insanity: the lost child',
-                    header: 'Deep Insanity: The Lost Child',
-                    caption: 'Do not miss this one if you like Sci-fi',
-                    src: 'https://starcrossedanime.com/deep-insanity-the-lost-child/'
-                    },
-                    {
-                    altText: 'Summer Ghost',
-                    Header: 'Summer Ghost',
-                    caption: 'If you would like to explore small studio projects, look no futher than this',
-                    src: 'https://starcrossedanime.com/0-summer-ghost/'
-                    }
-                ]}
-            />
+            <div>
+                <Carousel>
+                    <Carousel.Item>
+                        <img alt="900x500" src="https://starcrossedanime.com/ousama-ranking-2/"/>
+                        <Carousel.Caption>
+                            <h3>Ousama Ranking</h3>
+                            <p>Highest Expectation</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img alt="900x500" src="https://starcrossedanime.com/deep-insanity-the-lost-child/"/>
+                        <Carousel.Caption>
+                            <h3>Deep insanity: the lost child</h3>
+                            <p>Do not miss this one if you like Sci-fi</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img alt="900x500" src="https://starcrossedanime.com/0-summer-ghost/"/>
+                        <Carousel.Caption>
+                            <h3>Summer Ghost</h3>
+                            <p>If you would like to explore small studio projects, look no futher than this</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
+            </div>
             <br></br>
             <div>
-            <h3>Manga Animation News</h3>
-            <ListGroup>
-                <ListGroupItem>
-                    <img id="newsimg" alt="newsimg" src="https://cdn.myanimelist.net/s/common/uploaded_files/1638513349-b5ae2a5f089cc8d9c0278032e585847d.jpeg" />
-                    <div>
-                    <h4>'Baraou no Souretsu' Announces Supporting Cast {'  '}<FontAwesomeIcon icon={faHeart} className="icon" hidden={show}/></h4>
-                    <Link
+                <Container fluid>
+                <Link
                         to="/news"
-                        className="nav-link"
+                        className="home-nav-link"
                     >More News</Link>
-                    <p>The official website for the television anime adaptation of Aya Kanno's Baraou no Souretsu (Requiem of the Rose King) manga revealed two additional cast members, two character promos, and a second key visual (pictured) on Thursday. The anime is scheduled to premiere on January 9 at 10:30 p.m. on Tokyo MX, followed by KBS Kyoto, Sun TV, and BS11...</p>
-                    <p><span>2021-12-03 by </span>Aidan</p>
-                    <Button color="success"
-                        onClick={toggle}>More details
-                    </Button>
-                    </div>
-                </ListGroupItem>
-            </ListGroup>
+                <h3>Manga Animation News</h3>
+                </Container>
+                <ListGroup>
+                    <ListGroupItem>
+                        <img alt="newsimg" src="https://cdn.myanimelist.net/s/common/uploaded_files/1638513349-b5ae2a5f089cc8d9c0278032e585847d.jpeg" />
+                        <div>
+                        <h4>'Baraou no Souretsu' Announces Supporting Cast {'  '}<FontAwesomeIcon icon={faHeart} className="icon" hidden={show}/></h4>
+                        <p>The official website for the television anime adaptation of Aya Kanno's Baraou no Souretsu (Requiem of the Rose King) manga revealed two additional cast members, two character promos, and a second key visual (pictured) on Thursday. The anime is scheduled to premiere on January 9 at 10:30 p.m. on Tokyo MX, followed by KBS Kyoto, Sun TV, and BS11...</p>
+                        <p><span>2021-12-03 by </span>Aidan</p>
+                        <Button color="success"
+                            onClick={toggle}>More details
+                        </Button>
+                        </div>
+                    </ListGroupItem>
+                </ListGroup>
             
                 <Modal fullscreen="md" scrollable isOpen={modal} toggle={toggle}>
                     <ModalHeader toggle={toggle}>
@@ -96,48 +102,47 @@ export default function About(props) {
                     <Button onClick={toggle}>Close</Button>
                     </ModalFooter>
                 </Modal>
-                </div>
-        <Container fluid>
-        <br></br>
-        <h3>Manga Library</h3>
-        <p>Sort Manga By:
-          <span class="sort-button">
-            <select
-              name="sort"
-              onChange={(e) => props.onSort(booklists, e.target.value)}>
-              <option value="default">by default</option>
-              <option value="asc">a-z</option>
-              <option value="desc">z-a</option>
-            </select>
-          </span>
-        </p>
-
-        <Container fluid>
-        <Row xs={2} md={4} lg={6} className="g-4">
-            {booklists.map(booklist=>{
-                return <Col >
-                    <Card>
-                        <CardImg variant="top" src={booklist.cover} alt="cover" width="100%" />
-                        <CardBody>
-                        <CardTitle>{booklist.title}</CardTitle>
-                        <CardText>
-                            <span>Score: {booklist.score}/10</span>
-                            <br />
-                        </CardText>
-                        <Button color="success" outline size="sm">
-                            <Link to={`/booklists/${booklist._id}`}>Details</Link>
-                        </Button>
-                        <Button color="success" size="sm"
-                            onClick = {()=> props.handleSave(booklist)}
-                        >Save</Button>
-                        </CardBody>
-                    </Card>
-                </Col>
-            })
-            }
-        </Row>
-        </Container>
-      </Container>
             </div>
+            <Container fluid>
+                <br></br>
+                <div className='sort-button'>
+                <p>Sort Manga By:
+                <span>
+                    <select
+                    name="sort"
+                    onChange={(e) => props.onSort(booklists, e.target.value)}>
+                    <option value="default">by default</option>
+                    <option value="asc">a-z</option>
+                    <option value="desc">z-a</option>
+                    </select>
+                </span>
+                </p>
+                </div>
+                <h3>Manga Library</h3>
+                <Row xs={2} sm={3} md={4} lg={6} className="g-4 home-row">
+                    {booklists.map(booklist=>{
+                        return <Col >
+                            <Card>
+                                <CardImg className='home-cardimg' variant="top" src={booklist.cover} alt="cover" />
+                                <CardBody>
+                                <CardTitle className='home-cardtitle'>{booklist.title}</CardTitle>
+                                <CardText>
+                                    <span>Score: {booklist.score}/10</span>
+                                    <br />
+                                </CardText>
+                                <Button color="success" outline size="sm">
+                                    <Link to={`/booklists/${booklist._id}`} className='home-link'>Details</Link>
+                                </Button>
+                                <Button color="success" size="sm"
+                                    onClick = {()=> props.handleSave(booklist)}
+                                >Save</Button>
+                                </CardBody>
+                            </Card>
+                        </Col>
+                    })
+                    }
+                </Row>
+            </Container>
+        </div>
     )
 }

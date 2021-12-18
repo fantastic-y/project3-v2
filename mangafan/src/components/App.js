@@ -16,6 +16,7 @@ import AllNews from './Newspage';
 import MangaDetails from './Manga';
 import Request from './Request'
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -42,21 +43,6 @@ class App extends Component {
     this.setState({saved: !props.saved});
     console.log(props.saved + " Updated saved status!");
   }
-//   handleSave = async (event) => {
-//     event.preventDefault();
-//     const {item} = this.state;
-//     this.setState({saved: !event.saved});
-    
-//     await fetch('http://localhost:8000/api/booklist', {
-//         method: (item._id) ? 'PUT' : 'POST',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(item),
-//     });
-//     this.props.history.push('/booklists');
-// }
 
   onSort = (listNum, sortType) => {
   listNum.sort((a, b) => {

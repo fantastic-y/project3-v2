@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Container, ButtonGroup, Table } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
-// import "./App.css";
+import "./css/styles.css";
 
 export default function BookList(props) {
     const {booklists}= props;

@@ -1,0 +1,70 @@
+.carousel {
+  background-color: #3e4444;
+  max-height: 900px;
+}
+.carousel .carousel-item img {
+  width: 100%;
+}
+
+.home-nav-link {
+  color: #c1946a;
+  float: right;
+}
+
+.list-group {
+  width: 100%;
+}
+.list-group .list-group-item img {
+  float: left;
+  border-right: 50px solid #ffffff;
+  height: 240px;
+}
+.list-group .list-group-item span {
+  color: #3e4444;
+}
+.list-group .list-group-item button {
+  float: right;
+}
+
+.sort-button {
+  float: right;
+}
+.sort-button span {
+  margin-left: 10px;
+}
+.sort-button select {
+  padding: 5px;
+}
+
+.home-row {
+  width: 100%;
+}
+.home-row button {
+  font-size: 12px;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-right: 6px;
+  float: right;
+}
+
+.home-cardimg {
+  max-height: 240px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-cardtitle {
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 200px;
+}
+
+.home-link {
+  color: black;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=styles.css.map */
