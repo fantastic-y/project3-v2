@@ -4,6 +4,10 @@ import BookList from './BookList';
 import BookEdit from './BookEdit';
 import Home from './Home';
 import Billboard from './Billboard';
+import BillboardAction from './Billboard-action';
+import BillboardComedy from './Billboard-comedy';
+import BillboardDrama from './Billboard-drama';
+import BillboardMystery from './Billboard-romance';
 import About from './About';
 import Signin from './Login';
 import AppNavbar from './Navbar';
@@ -99,6 +103,30 @@ class App extends Component {
             />
           <Route exact path="/billboard" render={() => 
             <Billboard
+              booklists = {this.state.booklists}
+              handleSave = {this.handleSave}
+            />
+          }/>
+          <Route exact path="/billboard/action" render={() => 
+            <BillboardAction
+              booklists = {this.state.booklists}
+              handleSave = {this.handleSave}
+            />
+          }/>
+          <Route exact path="/billboard/comedy" render={() => 
+            <BillboardComedy
+              booklists = {this.state.booklists}
+              handleSave = {this.handleSave}
+            />
+          }/>
+          <Route exact path="/billboard/drama" render={() => 
+            <BillboardDrama
+              booklists = {this.state.booklists}
+              handleSave = {this.handleSave}
+            />
+          }/>
+          <Route exact path="/billboard/mystery" render={() => 
+            <BillboardMystery
               booklists = {this.state.booklists}
               handleSave = {this.handleSave}
             />

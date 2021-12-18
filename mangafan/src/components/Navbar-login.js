@@ -40,8 +40,20 @@ export default function AppNavbar() {
                         <NavItem>
                             <NavLink href="/request">Request</NavLink>
                         </NavItem>
-                        <NavItem>
-                            <NavLink href="/login">Login</NavLink>
+                        <NavItem>          
+                        <UncontrolledDropdown nav inNavbar>
+                                <DropdownToggle caret>
+                                    Log In
+                                </DropdownToggle>
+                                <DropdownMenu>
+                                    <DropdownItem href="#action">My Profile</DropdownItem>
+                                    <DropdownItem href="/booklists">My Booklist</DropdownItem>
+                                    <DropdownItem divider/>
+                                    <DropdownItem 
+                                        onClick={() => {clearSession()}}
+                                    >Log Out</DropdownItem>
+                                </DropdownMenu>
+                        </UncontrolledDropdown>
                         </NavItem>
                     </Nav>
                 </Collapse>

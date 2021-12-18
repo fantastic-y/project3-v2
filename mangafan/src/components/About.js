@@ -42,7 +42,7 @@ export default function About() {
                 </Card>
             </Col>
         </Row>
-        <Button>
+        <Button href="/login">
             Sign Up Here
         </Button>
         </Container>

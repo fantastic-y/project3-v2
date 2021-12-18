@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, Container, Row, Col, 
     Card, CardBody, CardImg, CardTitle, CardText,
     Modal, ModalBody, ModalHeader, ModalFooter, 
-    ListGroup, ListGroupItem } from 'reactstrap';
+    ListGroup, ListGroupItem, UncontrolledCarousel } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,6 +21,29 @@ export default function About(props) {
 
     return(
         <div>
+            <UncontrolledCarousel
+                items={[
+                    {
+                    altText: 'Ousama Ranking',
+                    header: 'Ousama Ranking',
+                    caption: 'Highest Expectation',
+                    src: 'https://starcrossedanime.com/ousama-ranking-2/'
+                    },
+                    {
+                    altText: 'Deep insanity: the lost child',
+                    header: 'Deep Insanity: The Lost Child',
+                    caption: 'Do not miss this one if you like Sci-fi',
+                    src: 'https://starcrossedanime.com/deep-insanity-the-lost-child/'
+                    },
+                    {
+                    altText: 'Summer Ghost',
+                    Header: 'Summer Ghost',
+                    caption: 'If you would like to explore small studio projects, look no futher than this',
+                    src: 'https://starcrossedanime.com/0-summer-ghost/'
+                    }
+                ]}
+            />
+            <br></br>
             <div>
             <h3>Manga Animation News</h3>
             <ListGroup>
@@ -90,7 +113,7 @@ export default function About(props) {
         </p>
 
         <Container fluid>
-        <Row xs={1} md={4} lg={6} className="g-4">
+        <Row xs={2} md={4} lg={6} className="g-4">
             {booklists.map(booklist=>{
                 return <Col >
                     <Card>
@@ -101,10 +124,12 @@ export default function About(props) {
                             <span>Score: {booklist.score}/10</span>
                             <br />
                         </CardText>
-                        <Link to={`/booklists/${booklist._id}`}>Read More</Link>
-                        <Button color="success"
+                        <Button color="success" outline size="sm">
+                            <Link to={`/booklists/${booklist._id}`}>Details</Link>
+                        </Button>
+                        <Button color="success" size="sm"
                             onClick = {()=> props.handleSave(booklist)}
-                        >Save to my booklist</Button>
+                        >Save</Button>
                         </CardBody>
                     </Card>
                 </Col>

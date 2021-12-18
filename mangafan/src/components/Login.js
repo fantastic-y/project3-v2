@@ -74,7 +74,6 @@ function LoginForm() {
       <label className="m-2">Password:</label><br />
       <input type="text" name="password" placeholder="Your Password"></input><br />
       <input type="submit" value="Login" className="btn bg-success text-white my-3"></input>
-      <p>Don't have an account? <span to="/register">Click here to Register.</span></p>
     </form>
   )
 }

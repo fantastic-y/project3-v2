@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from 'react-router-dom';
 // import "./App.css";
 
-export default function Billboard(props) {
+export default function BillboardAction(props) {
     const {booklists}= props;
     let i = 1 ;
 
@@ -13,10 +13,10 @@ export default function Billboard(props) {
             <Container fluid>
                 <h3>Billboard Top 10 Mangas</h3>
                 <span>Genres: </span>
-                <Badge active color="dark" href="billboard">All</Badge>{' '}
-                <Badge color="dark" href="billboard/action">Action</Badge>{' '}
-                <Badge color="dark" href="billboard/comedy">Comedy</Badge>{' '}
-                <Badge color="dark" href="billboard/drama">Drama</Badge>{' '}
+                <Badge active color="dark" href="/billboard">All</Badge>{' '}
+                <Badge color="dark" href="/billboard/action">Action</Badge>{' '}
+                <Badge color="dark" href="/billboard/comedy">Comedy</Badge>{' '}
+                <Badge color="dark" href="/billboard/drama">Drama</Badge>{' '}
                 <Badge color="dark" href="/billboard/Mystery">Mystery</Badge>
                     <Table hover responsive size="sm">
                         <thead>
@@ -31,13 +31,11 @@ export default function Billboard(props) {
                             </tr>
                         </thead>
                         <tbody>
-                            {booklists.sort(function(a,b){return b.score-a.score}).slice(0,10)
+                            {booklists.filter(booklist => booklist.genres === "Action").sort(function(a,b){return b.score-a.score}).slice(0,10)
                             .map(booklist => {
                             return <tr key={booklist._id}>
                                 <td>{i ++}</td>
-                                <td>
-                                    <img src={booklist.cover} alt="cover" />
-                                </td>
+                                <td><img src={booklist.cover} alt="cover" /></td>
                                 <td>{booklist.title}</td>
                                 <td>{booklist.author}</td>
                                 <td>{booklist.genres}</td>
