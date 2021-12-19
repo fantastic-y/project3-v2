@@ -51,7 +51,6 @@ export default function BookList(props) {
                                         <Button
                                             size="sm"
                                             color="danger"
-                                            // onClick={() => this.removeInv(booklist._id)}
                                             onClick={() => props.handleSave(booklist)}
                                         >Delete</Button>
                                     </ButtonGroup>

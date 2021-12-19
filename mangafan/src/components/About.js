@@ -43,7 +43,7 @@ export default function About() {
             </Col>
         </Row>
         
-        <iframe src="https://giphy.com/embed/qe9K8qYKxNUuk" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <iframe title="gif" src="https://giphy.com/embed/qe9K8qYKxNUuk" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         
         <Button className="about-signup" color="secondary" href="/login">
             Sign Up Here

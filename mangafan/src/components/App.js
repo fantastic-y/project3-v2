@@ -9,14 +9,13 @@ import BillboardComedy from './Billboard-comedy';
 import BillboardDrama from './Billboard-drama';
 import BillboardMystery from './Billboard-romance';
 import About from './About';
-import Signin from './Login';
 import AppNavbar from './Navbar';
+import AppNavlog from './Navbar-login';
 import FooterPage from './Footer';
 import { newsData } from './newsdetails';
 import AllNews from './Newspage';
 import MangaDetails from './Manga';
 import Request from './Request';
-
 
 class App extends Component {
   constructor(props) {
@@ -28,8 +27,11 @@ class App extends Component {
         sortType: "asc",
         listNum: "",
         billlist: "",
-        filterGenre: ""
+        filterGenre: "",
+        isLogged: false,
     };
+    this.handleLogIn=this.handleLogIn.bind(this);
+    this.handleLogOut=this.handleLogOut.bind(this);
   }
 
   componentDidMount() {
@@ -38,6 +40,17 @@ class App extends Component {
       fetch('http://localhost:8000/api/booklists')
           .then(response => response.json())
           .then(data => this.setState({booklists: data, isLoading: false}));
+  }
+
+  handleLogIn = () => {
+    this.setState({isLogged: true });
+  }
+
+  handleLogOut = () => {
+    this.setState({isLogged: false });
+    sessionStorage.clear();
+        alert("Logged out successfully!");
+        window.location.reload();
   }
 
   handleSave = (props) => {
@@ -59,7 +72,14 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <AppNavbar />
+        {!this.state.isLogged && 
+        <AppNavbar
+          handleLogIn = {this.handleLogIn}
+        />}
+        {this.state.isLogged &&
+        <AppNavlog 
+          handleLogOut = {this.handleLogOut}
+        />}
         <Switch>
           <Route exact path='/' render={() => (
             <Home
@@ -75,7 +95,6 @@ class App extends Component {
               newsLists={this.state.newsLists.newsDetails}
             />)}
           />
-          <Route exact path='/login' component={Signin}/>
           <Route exact path='/booklists' render={() => 
             <BookList
               booklists = {this.state.booklists}

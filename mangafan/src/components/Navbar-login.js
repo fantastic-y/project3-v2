@@ -2,20 +2,13 @@ import React from 'react';
 import {
     Collapse,Navbar, NavbarToggler, NavbarBrand,
     Nav, NavItem, NavLink,
-    UncontrolledDropdown,
-    DropdownToggle, DropdownMenu, DropdownItem,
+    UncontrolledDropdown, DropdownMenu, DropdownItem, DropdownToggle
   } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import companylogo from './img/mangafanlogo.png';
 
-export default function AppNavbar() {
+export default function AppNavlog(props) {
     const [isOpen, setIsOpen] = React.useState(false);
-    
-    function clearSession(){
-        sessionStorage.clear();
-        alert("Logged out successfully!");
-        window.location.reload();
-      }
     
     return (
         <Navbar sticky="top" color="dark" dark expand="md">
@@ -40,22 +33,21 @@ export default function AppNavbar() {
                         <NavItem>
                             <NavLink href="/request">Request</NavLink>
                         </NavItem>
-                        <NavItem>          
+                    </Nav>
+                    <NavItem>          
                         <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle caret>
-                                    Log In
+                                    Welcome {/* {this.props.location.user} */}
                                 </DropdownToggle>
                                 <DropdownMenu>
-                                    <DropdownItem href="#action">My Profile</DropdownItem>
                                     <DropdownItem href="/booklists">My Booklist</DropdownItem>
                                     <DropdownItem divider/>
                                     <DropdownItem 
-                                        onClick={() => {clearSession()}}
+                                        onClick={() => props.handleLogOut()}
                                     >Log Out</DropdownItem>
                                 </DropdownMenu>
                         </UncontrolledDropdown>
                         </NavItem>
-                    </Nav>
                 </Collapse>
         </Navbar>
     )
