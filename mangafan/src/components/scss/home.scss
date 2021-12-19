@@ -26,12 +26,11 @@
 }
 .home-row {
     width: 100%;
-    button {
-        font-size: 12px;
-        padding-left: 3px;
-        padding-right: 3px;
-        margin-right: 6px;
-        float: right;
+    span {font-size: 13px}
+    .home-button {
+        padding-right: 10px;
+        padding-left: 10px;
+        font-size: 14px;
     }
 }
 .home-cardimg {
@@ -46,8 +45,4 @@
     text-overflow: ellipsis;
     overflow: hidden;
     max-width: 200px;
-}
-.home-link {
-    color: black;
-    text-decoration: none;
 }

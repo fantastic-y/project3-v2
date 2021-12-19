@@ -1,0 +1,29 @@
+.about-banner {
+    height: 300px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+.about-card {
+    background-color: $primary;
+}
+.about-title {
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+.about-signup {
+    padding: 65px 30px 65px 30px;
+    margin-top: 50px;
+    width: 30%;
+    border: none;
+    float: right;
+    background-color: $secondary;
+}
+.about .row {
+    margin-top: 30px;
+}
+iframe {
+    max-width: 300px;
+    position: relative;
+    left: 0;
+}

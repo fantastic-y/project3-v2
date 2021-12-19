@@ -1,22 +1,22 @@
 import React from 'react';
 import { Button, Container, Row, Col, 
     Card,  CardImg, CardTitle, CardText, CardImgOverlay, } from 'reactstrap';
-// import { Link } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
-import aboutus from './img/about_banner.jpg';
-// import "./App.css";
+import aboutus from './img/banner_5.jpg';
+import "./css/styles.css";
 
 export default function About() {
 
     return(
-        <Container fluid>
-            <Card inverse>
+        <Container fluid className='about'>
+            <Card className="about-card" inverse>
                 <CardImg
-                alt="about_banner"
-                src={aboutus}
-                width="100%"/>
+                    className='about-banner'
+                    alt="about_banner"
+                    src={aboutus}
+                />
                 <CardImgOverlay>
-                    <CardTitle tag="h1">About MangaFan</CardTitle>
+                    <CardTitle tag="h1" className='about-title'>About MangaFan</CardTitle>
                     <CardText>The most professional manga database and community for the hardcore manga fans in SoCal.</CardText>
                 </CardImgOverlay>
             </Card>
@@ -42,7 +42,10 @@ export default function About() {
                 </Card>
             </Col>
         </Row>
-        <Button href="/login">
+        
+        <iframe src="https://giphy.com/embed/qe9K8qYKxNUuk" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        
+        <Button className="about-signup" color="secondary" href="/login">
             Sign Up Here
         </Button>
         </Container>

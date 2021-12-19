@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, Container, Row, Col, 
     Card, CardBody, CardImg, CardTitle, CardText,
     Modal, ModalBody, ModalHeader, ModalFooter, 
-    ListGroup, ListGroupItem, UncontrolledCarousel } from 'reactstrap';
+    ListGroup, ListGroupItem, ButtonGroup } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -63,7 +63,7 @@ export default function About(props) {
                         <h4>'Baraou no Souretsu' Announces Supporting Cast {'  '}<FontAwesomeIcon icon={faHeart} className="icon" hidden={show}/></h4>
                         <p>The official website for the television anime adaptation of Aya Kanno's Baraou no Souretsu (Requiem of the Rose King) manga revealed two additional cast members, two character promos, and a second key visual (pictured) on Thursday. The anime is scheduled to premiere on January 9 at 10:30 p.m. on Tokyo MX, followed by KBS Kyoto, Sun TV, and BS11...</p>
                         <p><span>2021-12-03 by </span>Aidan</p>
-                        <Button color="success"
+                        <Button color="success" outline
                             onClick={toggle}>More details
                         </Button>
                         </div>
@@ -130,12 +130,14 @@ export default function About(props) {
                                     <span>Score: {booklist.score}/10</span>
                                     <br />
                                 </CardText>
-                                <Button color="success" outline size="sm">
-                                    <Link to={`/booklists/${booklist._id}`} className='home-link'>Details</Link>
-                                </Button>
-                                <Button color="success" size="sm"
-                                    onClick = {()=> props.handleSave(booklist)}
-                                >Save</Button>
+                                <ButtonGroup>
+                                    <Button className="home-button" color="secondary" outline size="sm" href={`/booklists/${booklist._id}`}>
+                                        Details
+                                    </Button>
+                                    <Button className="home-button" color="success" size="sm"
+                                        onClick = {()=> props.handleSave(booklist)}
+                                    >Save</Button>
+                                </ButtonGroup>
                                 </CardBody>
                             </Card>
                         </Col>

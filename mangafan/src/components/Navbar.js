@@ -1,10 +1,11 @@
 import React from 'react';
 import {
     Collapse,Navbar, NavbarToggler, NavbarBrand,
-    Nav, NavItem, NavLink,
+    Nav, NavItem, NavLink, Button
   } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import companylogo from './img/mangafanlogo.png';
+import "./css/styles.css";
 
 export default function AppNavbar() {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -32,10 +33,8 @@ export default function AppNavbar() {
                         <NavItem>
                             <NavLink href="/request">Request</NavLink>
                         </NavItem>
-                        <NavItem>
-                            <NavLink href="/login">Login</NavLink>
-                        </NavItem>
                     </Nav>
+                    <Button color="success" className="nav-login" href="/login">Login</Button>
                 </Collapse>
         </Navbar>
     )

@@ -1,0 +1,17 @@
+@import "color.scss";
+
+.billboard {
+    padding-top: 20px;
+    .table {
+        margin-top: 25px;
+    }
+    th {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 20px;
+    }
+    img {
+        height: 250px;
+    }
+}

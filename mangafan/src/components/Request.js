@@ -1,15 +1,24 @@
 import React from 'react';
 import { Button, Container, Form, Col, 
-    FormGroup, Label, Input, Alert } from 'reactstrap';
+    FormGroup, Label, Input, Card, CardImg } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
+import requestbanner from './img/request_banner.jpg';
 import "./css/styles.css";
 
 export default function Request() {
 
     return(
         <Container>
+            <Card className="request-card" inverse>
+                <CardImg
+                    className='request-banner'
+                    alt="request_banner"
+                    src={requestbanner}
+                />
+            </Card>
             <br></br>
             <h2>Make a Request</h2>
+            <br></br>
             <Form>
                 <FormGroup row>
                     <Label
@@ -28,7 +37,58 @@ export default function Request() {
                     />
                     </Col>
                 </FormGroup>
-                
+                <FormGroup row>
+                    <Label
+                    for="examplePhone"
+                    sm={2}
+                    >
+                    Contact (optional)
+                    </Label>
+                    <Col sm={10}>
+                    <Input
+                        id="examplePhone"
+                        name="phone"
+                        placeholder="Contact phone number"
+                        type="phone"
+                    />
+                    </Col>
+                </FormGroup>
+                <FormGroup tag="fieldset">
+                <legend>
+                How would you like us to contact you?
+                </legend>
+                <FormGroup check>
+                <Input
+                    name="email"
+                    type="radio"
+                />
+                {' '}
+                <Label check>
+                    Email
+                </Label>
+                </FormGroup>
+                <FormGroup check>
+                <Input
+                    name="phone"
+                    type="radio"
+                />
+                {' '}
+                <Label check>
+                    Phone
+                </Label>
+                </FormGroup>
+                <FormGroup check>
+                <Input
+                    name="nocontact"
+                    type="radio"
+                />
+                {' '}
+                <Label check>
+                    Do not contact me
+                </Label>
+                </FormGroup>
+            </FormGroup>
+
                 <FormGroup row>
                     <Label
                     for="exampleSelect"

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Button, Container, Table, Badge } from 'reactstrap';
+import { Button, Container, Table, ButtonGroup } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from 'react-router-dom';
 import "./css/styles.css";
 
 export default function Billboard(props) {
@@ -9,25 +8,27 @@ export default function Billboard(props) {
     let i = 1 ;
 
     return(
-        <div>
+        <div className='billboard'>
             <Container fluid>
                 <h3>Billboard Top 10 Mangas</h3>
                 <span>Genres: </span>
-                <Badge active color="dark" href="billboard">All</Badge>{' '}
-                <Badge color="dark" href="billboard/action">Action</Badge>{' '}
-                <Badge color="dark" href="billboard/comedy">Comedy</Badge>{' '}
-                <Badge color="dark" href="billboard/drama">Drama</Badge>{' '}
-                <Badge color="dark" href="/billboard/Mystery">Mystery</Badge>
+                <ButtonGroup>
+                    <Button active outline color="success" href="/billboard">All</Button>{' '}
+                    <Button outline color="success" href="/billboard/action">Action</Button>{' '}
+                    <Button outline color="success" href="/billboard/comedy">Comedy</Button>{' '}
+                    <Button outline color="success" href="/billboard/drama">Drama</Button>{' '}
+                    <Button outline color="success" href="/billboard/mystery">Mystery</Button>{' '}
+                </ButtonGroup>
                     <Table hover responsive size="sm">
                         <thead>
                             <tr>
                                 <th width="5%">Ranking</th>
-                                <th width="5%">Image</th>
-                                <th width="5%">Manga Title</th>
-                                <th width="5%">Author</th>
-                                <th width="5%">Genres</th>
-                                <th width="5%">Score</th>
-                                <th width="10%">Save the Manga</th>
+                                <th width="20%">Image</th>
+                                <th width="22%">Manga Title</th>
+                                <th width="15%">Author</th>
+                                <th width="10%">Genres</th>
+                                <th width="8%">Score</th>
+                                <th width="20%">Save the Manga</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,15 +44,17 @@ export default function Billboard(props) {
                                 <td>{booklist.genres}</td>
                                 <td>{booklist.score}</td>
                                 <td>
-                                <Button color="success" outline size="sm">
-                                    <Link to={`/booklists/${booklist._id}`}>Details</Link>
-                                </Button>
-                                <Button
-                                    size="sm"
-                                    color="success"
-                                    // onClick={() => this.removeInv(booklist._id)}
-                                    onClick={() => props.handleSave(booklist)}
-                                >Save to my booklist</Button>
+                                <ButtonGroup>
+                                    <Button color="success" outline size="sm" href={`/booklists/${booklist._id}`}>
+                                        Details                                
+                                    </Button>
+                                    <Button
+                                        size="sm"
+                                        color="secondary"
+                                        outline
+                                        onClick={() => props.handleSave(booklist)}
+                                    >Save to my booklist</Button>
+                                </ButtonGroup>
                                 </td>
                                 </tr>
                             })}

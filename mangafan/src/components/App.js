@@ -11,10 +11,11 @@ import BillboardMystery from './Billboard-romance';
 import About from './About';
 import Signin from './Login';
 import AppNavbar from './Navbar';
+import FooterPage from './Footer';
 import { newsData } from './newsdetails';
 import AllNews from './Newspage';
 import MangaDetails from './Manga';
-import Request from './Request'
+import Request from './Request';
 
 
 class App extends Component {
@@ -120,6 +121,7 @@ class App extends Component {
           <Route exact path="/about" render={About}/>
           <Route exact path="/request" render={Request}/>
         </Switch>
+        <FooterPage />
       </Router>
     )
   }

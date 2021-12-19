@@ -1,2 +1,24 @@
 @import "home.scss";
 @import "billboard.scss";
+@import "about.scss";
+
+
+.nav-login {
+    margin-left: auto;
+}
+.icon {
+    color:$secondary;
+}
+.footer {
+    background-color: $primary;
+    p {color: lightgrey}
+    color: white;
+    font-size: small;
+    a {
+        text-decoration: none;
+        color: $secondary-green;
+    }
+    a:hover {
+        color: $secondary;
+    }
+}
