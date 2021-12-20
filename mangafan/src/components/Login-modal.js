@@ -26,7 +26,7 @@ class LoginForm extends React.Component {
       <div>
         <p>inside of forgot! :) Will build in phase 2. </p>
         <a
-          href="#"
+          href="#action"
           onClick={e => {
             e.preventDefault();
             this.setMode("login");
@@ -59,7 +59,7 @@ class LoginForm extends React.Component {
           </form>
         </div>
         <a
-          href="#"
+          href="#action"
           onClick={(e) => {
             e.preventDefault();
             this.setMode("login");
@@ -87,7 +87,7 @@ class LoginForm extends React.Component {
               <label>Password</label>
               <input type="password" className="form-control" value={this.state.password} onChange={this.loginonChangePassword} required />
               <a
-                href="#"
+                href="#action"
                 onClick={e => {
                   e.preventDefault();
                   this.setMode("forgot");
@@ -104,7 +104,7 @@ class LoginForm extends React.Component {
           </form>
         </div>
         <a
-          href="#"
+          href="#action"
           onClick={e => {
             e.preventDefault();
             this.setMode("register");
@@ -134,8 +134,7 @@ class LoginForm extends React.Component {
         if(this.state.username.length > 0 && this.state.password.length > 0){
           if (arr.username === this.state.username && (arr.password === this.state.password)) {
             let user = this.state.username;
-            history.push({ pathname: "/AppNavlog", user: this.state.username });
-            history.push({ pathname: "/App", user: this.state.username });
+            history.push({ pathname: "/", user: this.state.username });
             console.log(user);
           }else{
             this.setState({error:'Please check your email or password'})

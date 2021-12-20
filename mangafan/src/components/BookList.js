@@ -26,6 +26,7 @@ export default function BookList(props) {
                             <th scope="row">Manga Title</th>
                             <th scope="row">Author</th>
                             <th scope="row">Genres</th>
+                            <th scope="row">Score</th>
                             <th scope="row">Your Score</th>
                             <th scope="row">Actions</th>
                         </tr>
@@ -39,6 +40,7 @@ export default function BookList(props) {
                                 <td style={{whiteSpace: 'nowrap'}}>{booklist.title}</td>
                                 <td>{booklist.author}</td>
                                 <td>{booklist.genres}</td>
+                                <td>{booklist.score}</td>
                                 <td>{booklist.yourscore}</td>
                                 <td>
                                     <ButtonGroup>

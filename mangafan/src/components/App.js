@@ -16,6 +16,7 @@ import { newsData } from './newsdetails';
 import AllNews from './Newspage';
 import MangaDetails from './Manga';
 import Request from './Request';
+// import Login2 from './NewLog';
 
 class App extends Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class App extends Component {
     };
     this.handleLogIn=this.handleLogIn.bind(this);
     this.handleLogOut=this.handleLogOut.bind(this);
+    this.handleSave=this.handleSave.bind(this);
   }
 
   componentDidMount() {
@@ -56,6 +58,11 @@ class App extends Component {
   handleSave = (props) => {
     this.setState({saved: !props.saved});
     console.log(props.saved + " Updated saved status!");
+  }
+
+  handleAdd = (props) => {
+    this.setState({score: (props.score -=1 ) })
+    console.log(props.score);
   }
 
   onSort = (listNum, sortType) => {
@@ -88,6 +95,7 @@ class App extends Component {
               sortType={this.state.sortType}
               listNum={this.state.listNum}
               onSort={this.onSort}
+              handleAdd = {this.handleAdd}
             />
           )}/>
           <Route exact path='/news' render={() => (
@@ -137,7 +145,11 @@ class App extends Component {
               handleSave = {this.handleSave}
             />
           }/>
-          <Route exact path="/about" render={About}/>
+          <Route exact path="/about" render={() => 
+            <About
+            handleLogIn = {this.handleLogIn}
+            />
+          }/>
           <Route exact path="/request" render={Request}/>
         </Switch>
         <FooterPage />
